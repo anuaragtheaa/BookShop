@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewpart" content="width=devie-width,initial-scale=1">
+	<!-- Add Bootstrap css file -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- Add Bootstrap library -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body onload="onpageload()" style="background-color:#d9edf7;">
+<!-- Nav-->
+<header id="nav">
+<div class="row">
+<div class="col-md-12"> 
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="index.html">
+		<strong>Book Shop</strong></a>
+		</div>
+		<div class="collapse navbar-collapse" id="mynavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Book Type
+				<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" onclick="booklist(1)">PYTHON BOOKS</a></li>
+						<li><a href="#" onclick="booklist(0)">ANGULAR BOOKS</a></li>
+						<li><a href="#" onclick="booklist(2)">SQL BOOKS</a></li>
+					</ul>
+				</li>
+				<li><a href="#">GET IN TOUCH</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" id="usersignup" data-toggle="modal" data-target="#sign">Sign Up</a></li>
+				<li><a href="#" id="userlogin" data-toggle="modal" data-target="#login">Login</a></li>
+				<li><a href="#" onclick="viewchart()">View Cart</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+</div>
+</div>
+</header>
+<!--/Nav-->
+<!--  Modal -->
+<!-- SignUP-->
+<div class="modal fade" id="sign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2><strong>Sign Up</strong></h2>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="name">Name : </label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="name" placeholder="Enter Full Name : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="num">Phone No. : </label>
+								<div class="col-md-9">
+									<input type="number" class="form-control" id="num" placeholder="Enter Phone No. : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="email">Email : </label>
+								<div class="col-md-9">
+									<input type="email" class="form-control" id="email" placeholder="Enter Email ID : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="uname">User Name : </label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="uname" placeholder="Enter User Name : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="pass">Password : </label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" id="pass" placeholder="Enter Password : ">
+								</div>
+							</div>
+							<div class="row">
+								<div class="btn-group col-md-offset-3 col-md-6">
+									<button type="button" onclick="signup()" class="btn btn-primary">Sign Up</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+</div>
+<!--Login-->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2><strong>Sign Up</strong></h2>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group row">
+							<label class="col-md-3 col-form-control" form="luname">User ID : </label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" id="luname" placeholder="Enter User ID : ">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-3 col-form-control" form="lpass">Password : </label>
+							<div class="col-md-9">
+								<input type="password" class="form-control" id="lpass" placeholder="Enter Password : ">
+							</div>
+						</div>
+						<div class="row">
+							<div class="btn-group col-md-offset-3 col-md-6">
+								<button type="button" onclick="login()" class="btn btn-primary">Login</button>
+								<button type="reset" class="btn btn-default">Reset</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+<!--  /Modal -->
+<!-- Slider -->
+<section id="slider">
+<div class="container">
+	<div id="mainslide" class="carousel slide" data-ride="carousel">
+		<!--Wrap for Slider-->
+		<div class="carousel-inner">
+			<div class="item active">
+				<img class="img-responsive" style="width:100%" alt="" src="images/slide1.jpg">
+			</div>
+			<div class="item">
+				<img class="img-responsive" style="width:100%" alt="" src="images/slide2.jpg">
+			</div>
+			<div class="item">
+				<img class="img-responsive" style="width:100%" alt="" src="images/slide3.jpg">
+			</div>
+			<div class="item">
+				<img class="img-responsive" style="width:100%" alt="" src="images/slide4.jpg">
+			</div>
+			<!-- Indicator -->
+			<ol class="carousel-indicators">
+				<li data-target="#mainslide" data-slide-to="0" class="active"></li>
+				<li data-target="#mainslide" data-slide-to="1"></li>
+				<li data-target="#mainslide" data-slide-to="2"></li>
+				<li data-target="#mainslide" data-slide-to="3"></li>
+			</ol>
+		</div>
+	</div>
+</div>
+</section>
+<!-- /Slider --><br><br>
+<!-- Book Sample -->
+<section id="sample">
+<div class="container" style="background-color:#bcadd6;">
+	<div>
+		<ul class="nav nav-pills nav-justified">
+			<li class="active"><a data-toggle="tab" href="#python">PYTHON</a></li>
+			<li><a href="#angular" data-toggle="tab">ANGULAR</a></li>
+			<li><a href="#sql" data-toggle="tab">SQL</a></li>
+		</ul>
+		<div class="container tab-content">
+			<div id="python" class="row tab-pane fade in active" align="center">
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/python1.jpg"><br>
+					<span>Python Cookbook</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(0)">View</button>
+				</div>
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/python2.jpg"><br>
+					<span>Learning Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(1)">View</button>
+				</div>
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/python3.jpg"><br>
+					<span>Think Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(2)">View</button>
+				</div>	
+			</div>
+			<div id="angular" class="row tab-pane fade" align="center">
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/angular1.jpg"><br>
+					<span>Angular2 Cookbook</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(3)">View</button>
+				</div>
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/angular2.jpg"><br>
+					<span>Angular Expert</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(4)">View</button>
+				</div>
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/angular3.jpg"><br>
+					<span>Angular Book</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(5)">View</button>
+				</div>	
+			</div>
+			<div id="sql" class="row tab-pane fade" align="center">
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/sql1.jpg"><br>
+					<span>SQL-The Complete Reference</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(6)">View</button>
+				</div>
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/sql2.jpg"><br>
+					<span>Learning SQL</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(7)">View</button>
+				</div>
+				<div class="col-md-4 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+					<img class="img img-rounded img-responsive" src="images/sql3.jpg"><br>
+					<span>Introduction to SQL</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(8)">View</button>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+<!-- /Book Sample --><br><br>
+<!-- Content -->
+<section id="content">
+	<div class="container" style="background-color:#ccc5ce;">
+		<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<img class="img-responsive" src="images/service.jpg">
+				<span class="divider"></span>
+				<div class="content-header"><h2><strong>Our Services</strong></h2></div><br>
+				<p>Here you can buy any type of the book.We provide every type of computer related Books</p>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<img class="img-responsive" src="images/team.jpg">
+				<span class="divider"></span>
+				<div class="content-header"><h2><strong>Our Team</strong></h2></div><br>
+				<p>Our Team can provide every to book from Ancient to Modern</p>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<img class="img-responsive" src="images/office.jpg">
+				<span class="divider"></span>
+				<div class="content-header"><h2><strong>Our Office</strong></h2></div><br>
+				<p>Our Office is available in every State of the India. </p>
+			</div>
+		</div>	
+	</div>
+	</section><br>
+	<!-- /Content -->
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewpart" content="width=devie-width,initial-scale=1">
+	<!-- Add Bootstrap css file -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- Add Bootstrap library -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body onload="onpageload()" style="background-color:#b9dbc1;">
+<!-- Nav-->
+<header id="nav">
+<div class="row">
+<div class="col-md-12"> 
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="index.html">
+		<strong>Book Shop</strong></a>
+		</div>
+		<div class="collapse navbar-collapse" id="mynavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Book Type
+				<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" onclick="booklist(1)">PYTHON BOOKS</a></li>
+						<li><a href="#" onclick="booklist(0)">ANGULAR BOOKS</a></li>
+						<li><a href="#" onclick="booklist(2)">SQL BOOKS</a></li>
+					</ul>
+				</li>
+				<li><a href="#">GET IN TOUCH</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" id="usersignup" data-toggle="modal" data-target="#sign">Sign Up</a></li>
+				<li><a href="#" id="userlogin" data-toggle="modal" data-target="#login">Login</a></li>
+				<li><a href="cart.html">View Cart</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+</div>
+</div>
+</header>
+<!-- /Nav -->
+<!--  Modal -->
+<!-- SignUP-->
+<div class="modal fade" id="sign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2><strong>Sign Up</strong></h2>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="name">Name : </label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="name" placeholder="Enter Full Name : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="num">Phone No. : </label>
+								<div class="col-md-9">
+									<input type="number" class="form-control" id="num" placeholder="Enter Phone No. : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="email">Email : </label>
+								<div class="col-md-9">
+									<input type="email" class="form-control" id="email" placeholder="Enter Email ID : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="uname">User Name : </label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="uname" placeholder="Enter User Name : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="pass">Password : </label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" id="pass" placeholder="Enter Password : ">
+								</div>
+							</div>
+							<div class="row">
+								<div class="btn-group col-md-offset-3 col-md-6">
+									<button type="button" onclick="signup()" class="btn btn-primary">Sign Up</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+</div>
+<!--Login-->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2><strong>Sign Up</strong></h2>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group row">
+							<label class="col-md-3 col-form-control" form="luname">User ID : </label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" id="luname" placeholder="Enter User ID : ">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-3 col-form-control" form="lpass">Password : </label>
+							<div class="col-md-9">
+								<input type="password" class="form-control" id="lpass" placeholder="Enter Password : ">
+							</div>
+						</div>
+						<div class="row">
+							<div class="btn-group col-md-offset-3 col-md-6">
+								<button type="button" onclick="login()" class="btn btn-primary">Login</button>
+								<button type="reset" class="btn btn-default">Reset</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+<!--  /Modal -->
+
+<div class="container">
+<div id="successmessage" class='panel panel-primary'
+style="position: relative; top: 150px; left: 400px; align: center; width: 40%;">
+<div class='panel-heading'>MobileCart</div>
+<div class='panel-body'>Thank you for making the payment. Your
+    order will be shipped soon...</div>
+<div class='panel-footer'>
+    <a class='btn btn-default' onclick="backProduct();" 
+        style="color: #ff0080"> <i
+        class='glyphicon glyphicon-chevron-left'></i> Go to Products Page
+    </a>
+</div>
+</div>
+</div>
+<!-- /cart -->
+<script src="Checkout.js"></script>
+</body>
+</html>

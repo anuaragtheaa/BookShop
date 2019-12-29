@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewpart" content="width=devie-width,initial-scale=1">
+	<!-- Add Bootstrap css file -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- Add Bootstrap library -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body onload="onpageload()" style="background-color:#cadbb4;">
+<!-- Nav-->
+<header id="nav">
+<div class="row">
+<div class="col-md-12"> 
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="index.html">
+		<strong>Book Shop</strong></a>
+		</div>
+		<div class="collapse navbar-collapse" id="mynavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Book Type
+				<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" onclick="display(1)">PYTHON BOOKS</a></li>
+						<li><a href="#" onclick="display(0)">ANGULAR BOOKS</a></li>
+						<li><a href="#" onclick="display(2)">SQL BOOKS</a></li>
+					</ul>
+				</li>
+				<li><a href="#">GET IN TOUCH</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" id="usersignup" data-toggle="modal" data-target="#sign">Sign Up</a></li>
+				<li><a href="#" id="userlogin" data-toggle="modal" data-target="#login">Login</a></li>
+				<li><a href="#" onclick="viewchart()">View Cart</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+</div>
+</div>
+</header>
+<!--/Nav-->
+<!--  Modal -->
+<!-- SignUP-->
+<div class="modal fade" id="sign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2><strong>Sign Up</strong></h2>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="name">Name : </label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="name" placeholder="Enter Full Name : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="num">Phone No. : </label>
+								<div class="col-md-9">
+									<input type="number" class="form-control" id="num" placeholder="Enter Phone No. : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="email">Email : </label>
+								<div class="col-md-9">
+									<input type="email" class="form-control" id="email" placeholder="Enter Email ID : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="uname">User Name : </label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="uname" placeholder="Enter User Name : ">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 col-form-control" form="pass">Password : </label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" id="pass" placeholder="Enter Password : ">
+								</div>
+							</div>
+							<div class="row">
+								<div class="btn-group col-md-offset-3 col-md-6">
+									<button type="button" onclick="signup()" class="btn btn-primary">Sign Up</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+</div>
+<!--Login-->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2><strong>Sign Up</strong></h2>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group row">
+							<label class="col-md-3 col-form-control" form="luname">User ID : </label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" id="luname" placeholder="Enter User ID : ">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-3 col-form-control" form="lpass">Password : </label>
+							<div class="col-md-9">
+								<input type="password" class="form-control" id="lpass" placeholder="Enter Password : ">
+							</div>
+						</div>
+						<div class="row">
+							<div class="btn-group col-md-offset-3 col-md-6">
+								<button type="button" onclick="login()" class="btn btn-primary">Login</button>
+								<button type="reset" class="btn btn-default">Reset</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+<!--  /Modal -->
+<!-- BookList -->
+<div class="container" id="booklist">
+    <div class="row" align="center" style="background-color:#e2ded6;">
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+			<img class="img img-rounded img-responsive" src="images/python1.jpg"><br>
+			<span>Python Cookbook</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(0)">View</button>
+		</div>
+		<div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+			<img class="img img-rounded img-responsive" src="images/python2.jpg"><br>
+			<span>Learning Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(1)">View</button>
+		</div>
+		<div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+			<img class="img img-rounded img-responsive" src="images/python3.jpg"><br>
+			<span>Think Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(2)">View</button>
+        </div>
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+                <img class="img img-rounded img-responsive" src="images/python4.jpg"><br>
+                <span>Think Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(3)">View</button>
+        </div>
+    </div>
+    <div class="row" align="center" style="background-color:#dfd2e6;">
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+            <img class="img img-rounded img-responsive" src="images/python5.jpg"><br>
+            <span>Python Cookbook</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(4)">View</button>
+        </div>
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+            <img class="img img-rounded img-responsive" src="images/python6.jpg"><br>
+            <span>Learning Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(5)">View</button>
+        </div>
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+            <img class="img img-rounded img-responsive" src="images/python7.jpg"><br>
+            <span>Think Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(6)">View</button>
+        </div>
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+            <img class="img img-rounded img-responsive" src="images/python8.jpg"><br>
+            <span>Think Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(7)">View</button>
+        </div>
+    </div>
+    <div class="row" align="center" style="background-color:#f7e0e4;">
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+            <img class="img img-rounded img-responsive" src="images/python9.jpg"><br>
+            <span>Python Cookbook</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(8)">View</button>
+        </div>
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+            <img class="img img-rounded img-responsive" src="images/python10.jpg"><br>
+            <span>Learning Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(9)">View</button>
+        </div>
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+            <img class="img img-rounded img-responsive" src="images/python11.jpg"><br>
+            <span>Think Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(10)">View</button>
+        </div>
+        <div class="col-md-3 col-sm-6 aligncenter gridbordergrey whitebackground" style="padding:8px">
+                <img class="img img-rounded img-responsive" src="images/python12.jpg"><br>
+                <span>Think Python</span>&nbsp;&nbsp;&nbsp;<button class="btn btn-success" onclick="view(11)">View</button>
+        </div>        
+    </div>
+    </div>
+<!-- /BookList -->
+<script src="booklist.js"></script>
+</body>
+</html>
